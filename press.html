@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press - Palazzo Penelope</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-blue">
+<header>
+        <div class="header-left"></div>
+        <a href="index.html" class="header-center-logo">PALAZZO<br>PENELOPE</a>
+        <nav>
+            <a href="our-story.html">Our story</a>
+            <a href="contact.html">Contact</a>
+            <a href="press.html" class="active">press</a>
+            <a href="gallery.html">gallery</a>
+        </nav>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+        <a href="our-story.html" class="drawer-link">Our story</a>
+        <a href="contact.html" class="drawer-link">Contact</a>
+        <a href="press.html" class="drawer-link">press</a>
+        <a href="gallery.html" class="drawer-link">gallery</a>
+    </div>
+
+    <main class="page-section">
+        
+        <div class="grid-3">
+            <img src="img/IMG_7445_2 (1).jpg" alt="Press Image">
+            <img src="img/NAY_Apulien_klein-1010415.jpg" alt="Press Image">
+            <img src="img/Screenshot-2021-03-18-at-12.15.53.png" alt="Press Image">
+            
+        </div>
+
+        <div class="press-list">
+            <div class="press-item">
+                <div class="press-name">KINFOLK</div>
+                <div>Featured in Kinfolk in 2015 in a piece titled "A Home In Italy Facing The Adriatic Sea."<br>“From the outside it just looks like a normal town house, but as soon as you enter you are dragged by the light to the sea-facing kitchen and out onto the large terrace courtyard that hangs 20 meters above the water.”</div>
+            </div>
+            
+            <div class="press-item">
+                <div class="press-name">ELLE</div>
+                <div>Featured in August 2012, in a piece titled "The Aroma of Salt Air. Italy, Architecture exterior, Adriatic sea"</div>
+            </div>
+
+            <div class="press-item">
+                <div class="press-name">NEAR & YONDER</div>
+                <div>Covered by Near & Yonder, 2020.<br>"A beautiful conversion of an ancient building by Danish owner Pernille. The décor brings together local handicrafts, African art and pared-back Scandinavian style beneath vaulted ceilings."</div>
+            </div>
+
+            <div class="press-item">
+                <div class="press-name">THE SPACES</div>
+                <div>Featured on "The Spaces" in 2019.<br>A holiday home that hovers 70 ft above the Mediterranean might sound precarious, but the height adds to the drama at this retreat in Puglia. ‘You feel as if you are on your own island with nothing but the wide ocean in front of you,’ says owner Pernille.</div>
+            </div>
+
+            <div class="press-item">
+                <div class="press-name">MERAVIGLIA PAPER</div>
+                <div>Featured on Meraviglia Paper in 2018.<br>‘32 sq. m. of sea’. Water is the primary element that always fascinated Pino Pascali. The artist re-created his own sea in zinc tubs, each one containing a tone-on-tone variation of the colour of the sea. Pino Pascali, the greatest Apulian artist, was born in Bari on 19th October 1935. His parents came from Polignano a Mare. Very soon, his works emphasized his Mediterranean culture. Spend some days on the edge of the sea in this villa that hangs on the rock, arm wrestle with the wind to open the salty shutters of your room on a deep blue, and forget about the others, about the village, and about postcard-style Polignano. Palazzo Penelope is just modern quiet and silence, and the company of primary elements: sky, sea, dazzling sun that dries linens on a flat roof, and wind that dries your skin. The fire in the living room fireplace is out, the guitar awaits, the little red peaches tell us that it is summer already, and in some braceria in town, cicely-flavoured sausages are sizzling while fresh broad beans cook. I wasn’t born near the sea and my father did not take me there often, but at some point, very soon, the Mediterranean Sea got me, too.</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const drawer = document.getElementById('mobile-drawer');
+
+            if (hamburger && drawer) {
+                hamburger.onclick = function() {
+                    hamburger.classList.toggle('active');
+                    drawer.classList.toggle('active');
+                    document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+                };
+            }
+        });
+    </script>
+</body>
+</html>

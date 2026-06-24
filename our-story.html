@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Palazzo Penelope</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-left"></div> 
+        <a href="index.html" class="header-center-logo">PALAZZO<br>PENELOPE</a>
+        
+        <nav>
+            <a href="our-story.html" class="active">Our story</a>
+            <a href="contact.html">Contact</a>
+            <a href="press.html">press</a>
+            <a href="gallery.html">gallery</a>
+        </nav>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+        <a href="our-story.html" class="drawer-link">Our story</a>
+        <a href="contact.html" class="drawer-link">Contact</a>
+        <a href="press.html" class="drawer-link">press</a>
+        <a href="gallery.html" class="drawer-link">gallery</a>
+    </div>
+
+    <main class="page-section">
+        <p class="text-large text-center uppercase">
+            A beautiful ancient building on the cliffs with spectacular sea views facing the famous Grotta Palazzese of Polignano a Mare.
+        </p>
+        <img src="img/IMG_7487 (1).jpg" alt="Palazzo Penelope" class="hero-img">
+        
+        <p class="text-medium text-center">
+            PALAZZO PENELOPE is a modern, quiet enclave located in Polignano a Mare. Upon arriving, you will find yourself in the company of the most primary of elements: sky, sea, sun, wind.
+        </p>
+        <p class="text-medium text-center">
+            It has been carefully renovated in typical Apulian style, with vaulted tuff ceilings. The house has been tastefully restored by the best local Apulian craftsmen in local materials, and has been enriched by Scandinavian designer items and African art.
+        </p>
+        <p class="text-medium text-center text-small" style="margin-bottom: 6rem;">
+            It is a sister property to Masseria Schiuma, which is a 20 minute drive away from the house.
+        </p>
+
+        <h2 class="section-title">THE DETAILS</h2>
+        <p class="text-medium text-center">
+            The house is ideal for a group of friends and can host up to 4 couples/families where each couple has a private sleeping area. One double-room downstairs and 3 double rooms on the first floor on each side of the stairs.
+        </p>
+        <p class="text-medium text-center">
+            In total 3 double rooms with sea view and one family room with a double bed and a queen size bed (sleeps 2 children) facing the street. The full house in 2 floors is available including the top terrace with a small dipping pool and sun-beds.
+        </p>
+        <ul class="text-medium text-center" style="list-style: none; padding: 0; margin-bottom: 6rem;">
+            <li>· 10 guests</li>
+            <li>· 4 bedrooms</li>
+            <li>· 5 beds</li>
+            <li>· 4.5 baths</li>
+        </ul>
+
+        <h2 class="section-title">PUGLIA</h2>
+        <img src="img/Polignano_A_Mare.jpg" alt="Puglia Detail" class="hero-img">
+        
+        <p class="text-medium text-center">
+            Italy’s heel, also known as the country’s pantry because of its red soil, rich produce and otherworldly herbs.
+        </p>
+        <p class="text-medium text-center" style="margin-bottom: 6rem;">
+            Thanks to its porous and mineral-rich limestone soil, proximity to the sea and scorching hot summers, Puglia is also where Italy’s most delicious food is produced. Bunches of herbs dusted with salt from the air; figs that thrive in sandy coastal fields; and peppers of heavenly sweetness. Fancy it is not, but bountiful it is.
+        </p>
+
+        <h2 class="section-title">PROPRIETORS</h2>
+        <p class="text-medium text-center">
+            In 2011, Pernille and Lars Lembcke purchased Palazzo Penelope. As they got to know the area and started growing their own produce, they discovered facets of Puglia that deserve recognition not only within Italy, but around the world. That sparked an interest to cultivate, preserve and spread learnings from Puglia to the friends and guests around the world.
+        </p>
+
+        <div class="grid-3">
+            <img src="img/wb-22231.jpg" alt="View">
+            <img src="img/IMG_7408 (1).jpg" alt="Details">
+            <img src="img/IMG_7426 (1).jpg" alt="Kitchen">
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const drawer = document.getElementById('mobile-drawer');
+
+            if (hamburger && drawer) {
+                hamburger.onclick = function() {
+                    hamburger.classList.toggle('active');
+                    drawer.classList.toggle('active');
+                    document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+                };
+            }
+        });
+    </script>
+</body>
+</html>

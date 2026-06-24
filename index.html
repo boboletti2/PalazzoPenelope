@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palazzo Penelope</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-transparent">
+    
+    <img src="img/main.jpg" alt="Palazzo Penelope" class="bg-fullscreen">
+
+    <header>
+        <a href="https://www.masseriaschiuma.com/" class="header-left">masseria schiuma</a>
+        
+        <nav>
+            <a href="our-story.html">Our story</a>
+            <a href="contact.html">Contact</a>
+            <a href="press.html">press</a>
+            <a href="gallery.html">gallery</a>
+        </nav>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+        <a href="our-story.html" class="drawer-link">Our story</a>
+        <a href="contact.html" class="drawer-link">Contact</a>
+        <a href="press.html" class="drawer-link">press</a>
+        <a href="gallery.html" class="drawer-link">gallery</a>
+    </div>
+
+    <main>
+        <h1 class="hero-title"><b>Palazzo Penelope</b></h1>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const drawer = document.getElementById('mobile-drawer');
+
+            if (hamburger && drawer) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    drawer.classList.toggle('active');
+                    document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

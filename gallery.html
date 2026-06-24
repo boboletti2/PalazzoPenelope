@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Palazzo Penelope</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+        <div class="header-left"></div> 
+        <a href="index.html" class="header-center-logo">PALAZZO<br>PENELOPE</a>
+        <nav>
+            <a href="our-story.html">Our story</a>
+            <a href="contact.html">Contact</a>
+            <a href="press.html">press</a>
+            <a href="gallery.html" class="active">gallery</a>
+        </nav>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+        <a href="our-story.html" class="drawer-link">Our story</a>
+        <a href="contact.html" class="drawer-link">Contact</a>
+        <a href="press.html" class="drawer-link">press</a>
+        <a href="gallery.html" class="drawer-link">gallery</a>
+    </div>
+
+    <main class="page-section">
+        <div class="gallery-grid" id="gallery-grid">
+            </div>
+    </main>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</button>
+        <img src="" alt="Enlarged view" class="lightbox-img" id="lightbox-img">
+        <button class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        const imageFiles = [
+            'img/IMG_1290-1050x1400.jpg', 'img/IMG_2103-1050x1400.jpg', 'img/IMG_7398 (1).jpg',
+            'img/IMG_7401_1 (1).jpg', 'img/IMG_7402 (1).jpg', 'img/IMG_7404 (1).jpg',
+            'img/IMG_7408 (1).jpg', 'img/IMG_7410 (1).jpg', 'img/IMG_7411 (1).jpg',
+            'img/IMG_7413_1 (1).jpg', 'img/IMG_7417_1 (1).jpg', 'img/IMG_7419_1 (1).jpg',
+            'img/IMG_7420_1 (1).jpg', 'img/IMG_7421_1 (1).jpg', 'img/IMG_7425_1 (1).jpg',
+            'img/IMG_7426 (1).jpg', 'img/IMG_7427 (1).jpg', 'img/IMG_7428_1 (1).jpg',
+            'img/IMG_7428_1 (2).jpg', 'img/IMG_7428_1.jpg', 'img/IMG_7435 (1).jpg',
+            'img/IMG_7440 (1).jpg', 'img/IMG_7445_2 (1).jpg', 'img/IMG_7445_2 (2).jpg',
+            'img/IMG_7487 (1).jpg', 'img/main.jpg', 'img/NAY_Apulien_klein-1010415.jpg',
+            'img/palazzo-penelope1.jpg', 'img/palazzo-penelope11_copy.jpg', 'img/palazzo-penelope15.jpg',
+            'img/Polignano_A_Mare.jpg', 'img/Screenshot-2021-03-18-at-12.15.53.png',
+            'img/wb-22231.jpg', 'img/IMG_0044_JPG.jpeg'
+        ];
+
+        const galleryGrid = document.getElementById('gallery-grid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        let currentIndex = 0;
+
+        imageFiles.forEach((src, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+
+            const img = new Image();
+            img.src = src;
+            img.alt = "Palazzo Penelope Gallery Image";
+
+            img.onload = () => {
+                const aspectRatio = img.naturalWidth / img.naturalHeight;
+                if (aspectRatio > 1.4) {
+                    item.classList.add('wide');
+                } else if (aspectRatio < 0.8) {
+                    item.classList.add('tall');
+                } else {
+                    if (Math.random() > 0.7) item.classList.add('large');
+                }
+                item.appendChild(img);
+                galleryGrid.appendChild(item);
+            };
+
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                updateLightboxImage();
+                lightbox.classList.add('active');
+            });
+        });
+
+        function updateLightboxImage() { lightboxImg.src = imageFiles[currentIndex]; }
+        function closeLightbox() { lightbox.classList.remove('active'); }
+        function nextImage() { currentIndex = (currentIndex + 1) % imageFiles.length; updateLightboxImage(); }
+        function prevImage() { currentIndex = (currentIndex - 1 + imageFiles.length) % imageFiles.length; updateLightboxImage(); }
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        document.getElementById('lightbox-next').addEventListener('click', nextImage);
+        document.getElementById('lightbox-prev').addEventListener('click', prevImage);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const drawer = document.getElementById('mobile-drawer');
+
+            if (hamburger && drawer) {
+                hamburger.onclick = function() {
+                    hamburger.classList.toggle('active');
+                    drawer.classList.toggle('active');
+                    document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+                };
+            }
+        });
+    </script>
+</body>
+</html>
